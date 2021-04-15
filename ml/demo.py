@@ -1,5 +1,8 @@
+import os
 from tensorflow import keras
 from tensorflow.keras import layers
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
 
 # Download dataset
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()   
@@ -27,8 +30,8 @@ model.compile(
 )
 
 # Train model
-result = model.fit(x_train, y_train, batch_size=64, epochs=5, validation_split=0.2)
-test_scores = model.evaluate(x_test, y_test, verbose=2)
+result = model.fit(x_train, y_train, batch_size=64, epochs=5, validation_split=0.2, verbose=0)
+test_scores = model.evaluate(x_test, y_test, verbose=0)
 
 loss, accuracy = test_scores
 print("Test loss:", loss)
