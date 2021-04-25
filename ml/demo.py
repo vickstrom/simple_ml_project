@@ -1,8 +1,6 @@
-import os
+import json
 from tensorflow import keras
 from tensorflow.keras import layers
-
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
 
 # Download dataset
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()   
@@ -34,5 +32,15 @@ result = model.fit(x_train, y_train, batch_size=64, epochs=1, validation_split=0
 test_scores = model.evaluate(x_test, y_test, verbose=0)
 
 loss, accuracy = test_scores
-print("Test loss:", loss)
-print("Test accuracy:", accuracy)
+
+# Store results
+filename = "result.txt"
+num_format = "{:.2f}".format
+
+result_dict = {
+    'loss': num_format(loss),
+    'accuracy': num_format(accuracy)
+}
+
+with open(filename, "w") as f:
+    json.dump(result_dict, f)
