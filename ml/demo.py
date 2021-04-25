@@ -35,11 +35,10 @@ loss, accuracy = test_scores
 
 # Store results
 filename = "result.txt"
-num_format = "{:.2f}".format
 
 result_dict = {
-    'loss': num_format(loss),
-    'accuracy': num_format(accuracy)
+    'loss': loss.round(2),
+    'accuracy': accuracy.round(2)
 }
 
 with open(filename, "w") as f:
