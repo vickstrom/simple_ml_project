@@ -37,8 +37,8 @@ loss, accuracy = test_scores
 filename = "result.txt"
 
 result_dict = {
-    'loss': loss.round(2),
-    'accuracy': accuracy.round(2)
+    'loss': round(loss, 2),
+    'accuracy': round(accuracy, 2)
 }
 
 with open(filename, "w") as f:
