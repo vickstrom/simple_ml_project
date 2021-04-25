@@ -38,7 +38,7 @@ filename = "result.txt"
 
 result_dict = {
     'loss': round(loss, 2),
-    'accuracy': round(accuracy, 2)
+    'accuracy': round(accuracy, 2) * 100
 }
 
 with open(filename, "w") as f:
