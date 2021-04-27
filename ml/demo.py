@@ -15,7 +15,7 @@ x_test = x_test.reshape(nr_test_samples, x_size*y_size).astype("float32") / 255
 # Create model
 inputs = keras.Input(shape=(x_size*y_size))
 layer1 = layers.Dense(128, activation=keras.activations.sigmoid)(inputs)
-layer2 = layers.Dense(64)(layer1)
+layer2 = layers.Dense(32)(layer1)
 outputs = layers.Dense(10)(layer2)
 
 model = keras.Model(inputs=inputs, outputs=outputs)
