@@ -28,7 +28,7 @@ model.compile(
 )
 
 # Train model
-result = model.fit(x_train, y_train, batch_size=64, epochs=1, validation_split=0.2, verbose=1)
+result = model.fit(x_train, y_train, batch_size=64, epochs=5, validation_split=0.2, verbose=1)
 test_scores = model.evaluate(x_test, y_test, verbose=0)
 
 loss, accuracy = test_scores
